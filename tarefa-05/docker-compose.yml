@@ -1,0 +1,94 @@
+services:
+  # Base de dados para armazenar configurações e histórico do Zabbix
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    restart: always
+    env_file: .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-zabbix}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-zabbix_pwd}
+      - POSTGRES_DB=${POSTGRES_DB:-zabbix}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d zabbix -U zabbix"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - monitor-net
+
+  # Core do Zabbix - Processa a lógica de monitorização e alertas
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:alpine-6.0-latest
+    container_name: zabbix-server
+    restart: always
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DB_SERVER_HOST=postgres
+      - POSTGRES_USER=${POSTGRES_USER:-zabbix}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-zabbix_pwd}
+      - POSTGRES_DB=${POSTGRES_DB:-zabbix}
+    networks:
+      - monitor-net
+
+  # Interface Web do Zabbix - Acessível na porta 8080
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:alpine-6.0-latest
+    container_name: zabbix-web
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file: .env
+    depends_on:
+      - zabbix-server
+    environment:
+      - ZBX_SERVER_HOST=zabbix-server
+      - DB_SERVER_HOST=postgres
+      - POSTGRES_USER=${POSTGRES_USER:-zabbix}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-zabbix_pwd}
+      - POSTGRES_DB=${POSTGRES_DB:-zabbix}
+      - PHP_TZ=${PHP_TZ:-America/Sao_Paulo}
+    networks:
+      - monitor-net
+
+  # Grafana - Visualização de dados na porta 3000
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD:-admin}
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - monitor-net
+
+  # Coletor Python customizado (referenciando a Tarefa 04)
+  api-collector:
+    build:
+      context: ../tarefa-04
+      dockerfile: Dockerfile
+    container_name: api-collector
+    restart: always
+    depends_on:
+      - zabbix-server
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    driver: bridge
+
+volumes:
+  pg_data:
+  grafana_data:
