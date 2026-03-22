@@ -8,5 +8,5 @@ COPY . .
 # Garante permissão nos ficheiros necessários
 RUN chown -R bruno_user:bruno_user /app
 USER bruno_user
-# monitor.py conforme a estrutura de pastas
-CMD ["python", "-u", "monitor.py"]
+# monitor.py conforme a tua estrutura de pastas
+CMD ["python", "monitor.py"]
