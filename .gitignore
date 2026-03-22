@@ -1,29 +1,15 @@
-# --- Python ---
+# Python
+__pycache__/
+*.py[cod]
+*.class
 venv/
 .venv/
 env/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
-.pytest_cache/
-
-# --- Docker & Infra ---
-# Nunca suba o .env real com senhas
 .env
-# Ignora dados volumosos do banco de dados se você os mapeou localmente
-postgres_data/
 
-# --- IDEs & OS ---
-.vscode/
-.idea/
+# Logs e Docker
+*.log
+.env
+
+# System
 .DS_Store
-Thumbs.db
-
-# --- Tarefa específica ---
-# O relatório de exemplo (report.html) você PODE subir se quiser mostrar o resultado,
-# mas se quiser que cada um gere o seu, adicione a linha abaixo:
-# tarefa-06/report.htmltarefa-04/monitor.log
