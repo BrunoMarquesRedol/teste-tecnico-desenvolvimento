@@ -1,0 +1,15 @@
+services:
+  api-collector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-collector
+    restart: always
+    # Requisito 5: Variáveis de ambiente para configuração
+    environment:
+      - LOG_LEVEL=INFO
+      - APP_ENV=development
+    # Requisito 3: Usar volumes para configuração e logs
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./monitor.log:/app/monitor.log

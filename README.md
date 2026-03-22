@@ -1,57 +1,53 @@
-Nome: Bruno
+# Teste Técnico - Monitoramento de APIs e Automação
+NOME: Bruno Marques  
+Objetivo: Demonstrar competências avançadas em Python, Docker, Automação e Monitoramento.
 
-Objetivo: Demonstrar competências em Python, Docker, Automação e Monitoramento.
-Visão Geral do Projeto
+---
 
-Este repositório contém a resolução do teste técnico integrado, focando em escalabilidade, resiliência e automação. Cada tarefa foi desenvolvida seguindo o paradigma de Programação Orientada a Objetos (POO) e as melhores práticas de Clean Code (PEP 8).
-Estrutura de Diretórios
+## Visão Geral do Projeto
+Este repositório contém a resolução de um teste técnico integrado, focando em escalabilidade, resiliência e automação de processos. Cada tarefa foi desenvolvida seguindo o paradigma de Programação Orientada a Objetos (POO) e as melhores práticas de Clean Code (PEP 8).
 
-    tarefa-01/: Coletor de API REST resiliente.
+## Estrutura de Diretórios
+* tarefa-01/: Coletor de API REST resiliente.
+* tarefa-02/: Processador de métricas e gerador de relatórios.
+* tarefa-03/: Coletor robusto com Logging estruturado e Backoff Exponencial.
+* tarefa-04/: Containerização completa da solução utilizando Docker Compose e volumes persistentes para logs e configurações.
 
-    tarefa-02/: Processador de métricas e gerador de relatórios.
+---
 
-    tarefa-03/: Coletor robusto com Logging estruturado e Backoff Exponencial.
+## Detalhes Técnicos em Destaque
 
-Detalhes Técnicos da Tarefa 03
+### Resiliência e Observabilidade (Tarefa 03)
+* Estratégia de Retry: Configuração de até 3 tentativas automáticas para mitigar falhas intermitentes de rede.
+* Backoff Exponencial: Implementação de intervalos crescentes (1s, 2s, 4s) para respeitar os limites do servidor e evitar bloqueios.
+* Logging Estruturado: Saída dupla (console e arquivo monitor.log) com timestamps e níveis de severidade para auditoria.
 
-Nesta etapa, o foco foi a implementação de resiliência em scripts de automação:
+### Containerização e DevOps (Tarefa 04)
+* Segurança (Non-Root): Dockerfile configurado para rodar com o usuário bruno_user, evitando privilégios de administrador no container.
+* Persistência via Volumes: Sincronização em tempo real do arquivo de log e suporte a hot-reload de configurações via config.yaml.
+* Otimização: Uso de imagens python:3.12-slim e modo PYTHONUNBUFFERED para logs instantâneos.
 
-    Estratégia de Retry: Configuração de até 3 tentativas automáticas para mitigar falhas intermitentes de rede.
+---
 
-    Backoff Exponencial: Implementação de intervalos crescentes (1s, 2s, 4s) para respeitar os limites do servidor e evitar bloqueios.
+## Pré-requisitos
+Para executar este projeto, você precisará de:
+* Python 3.12 ou superior.
+* Docker e Docker Compose (versão atualizada).
+* Git (para versionamento).
 
-    Observabilidade: Utilização da biblioteca logging para saída dupla (console e arquivo monitor.log) com timestamps e níveis de severidade.
+## Uso de Inteligência Artificial
+Conforme permitido nas instruções do teste, utilizei ferramentas de IA (Gemini) para:
+* Refinamento da estrutura de documentação técnica.
+* Otimização de handlers de log para ambiente containerizado.
+* Revisão de lógica para tratamento de exceções robusto e Backoff Exponencial.
 
-    Configuração Externa: Separação de lógica e dados através de arquivos YAML, permitindo alterações de parâmetros sem modificação do código-fonte.
+## Fontes de Pesquisa
+* Documentação Oficial Python 3.12+
+* Biblioteca Requests - Guia do Usuário
+* Docker Documentation (Volumes & Security Best Practices)
+* Repositório de APIs Públicas (JSONPlaceholder / PokeAPI)
 
-Pré-requisitos
+---
 
-Para executar qualquer parte deste projeto, você precisará de:
-
-    Python 3.9 ou superior
-
-    Docker e Docker Compose
-
-    Git (para clonar o repositório)
-
-Uso de Inteligência Artificial
-
-Conforme permitido nas instruções do teste, utilizei ferramentas de IA (Gemini/ChatGPT) para:
-
-    Refinamento da estrutura de documentação técnica.
-
-    Revisão de lógica para tratamento de exceções robusto.
-
-    Otimização de comentários e docstrings para máxima clareza.
-
-Fontes de Pesquisa
-
-    Documentação Oficial Python 3.10+
-
-    Biblioteca Requests - Guia do Usuário
-
-    Repositório de APIs Públicas (JSONPlaceholder)
-
-Como Navegar
-
-Cada pasta possui seu próprio README.md com instruções específicas de execução e detalhes técnicos daquela tarefa. Por favor, acesse as subpastas para validar os resultados individuais.
+## Como Navegar
+Cada pasta possui seu próprio README.md com instruções específicas de execução e detalhes técnicos individuais. Por favor, acesse as subpastas para validar os resultados de cada etapa.
