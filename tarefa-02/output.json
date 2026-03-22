@@ -1,0 +1,49 @@
+{
+    "averages": {
+        "avg_cpu": 57.5,
+        "avg_mem": 70.0,
+        "avg_disk": 27.5
+    },
+    "server_reports": [
+        {
+            "name": "SRV-WEB-01",
+            "metrics": {
+                "cpu": 45,
+                "mem": 60,
+                "disk": 30
+            },
+            "status": "OK",
+            "processed_at": "2026-03-21 21:27:36"
+        },
+        {
+            "name": "SRV-DB-01",
+            "metrics": {
+                "cpu": 92,
+                "mem": 85,
+                "disk": 50
+            },
+            "status": "CRITICAL",
+            "processed_at": "2026-03-21 21:27:36"
+        },
+        {
+            "name": "SRV-APP-01",
+            "metrics": {
+                "cpu": 15,
+                "mem": 40,
+                "disk": 10
+            },
+            "status": "OK",
+            "processed_at": "2026-03-21 21:27:36"
+        },
+        {
+            "name": "SRV-GW-01",
+            "metrics": {
+                "cpu": 78,
+                "mem": 95,
+                "disk": 20
+            },
+            "status": "CRITICAL",
+            "processed_at": "2026-03-21 21:27:36"
+        }
+    ]
+}

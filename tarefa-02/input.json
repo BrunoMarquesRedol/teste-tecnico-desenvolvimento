@@ -1,0 +1,6 @@
+[
+    {"server": "SRV-WEB-01", "metrics": "cpu:45|mem:60|disk:30"},
+    {"server": "SRV-DB-01", "metrics": "cpu:92|mem:85|disk:50"},
+    {"server": "SRV-APP-01", "metrics": "cpu:15|mem:40|disk:10"},
+    {"server": "SRV-GW-01", "metrics": "cpu:78|mem:95|disk:20"}
+]
