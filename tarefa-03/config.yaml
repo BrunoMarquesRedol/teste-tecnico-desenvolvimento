@@ -1,0 +1,10 @@
+# Lista de URLs para monitoramento de status
+urls:
+  - https://jsonplaceholder.typicode.com
+  - https://api.github.com
+  - https://httpbin.org/status/200
+
+# Configurações de resiliência
+max_retries: 3    # Máximo de tentativas de reenvio
+timeout: 10       # Tempo limite de espera da resposta (segundos)
+log_level: INFO   # Nível de detalhamento do log

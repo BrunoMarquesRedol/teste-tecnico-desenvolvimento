@@ -1,0 +1,5 @@
+2026-03-22 00:17:49,953 [INFO] Iniciando monitoramento de URLs...
+2026-03-22 00:17:49,982 [INFO] SUCESSO: https://jsonplaceholder.typicode.com | Status: 200 | Tempo: 0.029s
+2026-03-22 00:17:50,172 [INFO] SUCESSO: https://api.github.com | Status: 200 | Tempo: 0.189s
+2026-03-22 00:17:50,747 [INFO] SUCESSO: https://httpbin.org/status/200 | Status: 200 | Tempo: 0.575s
+2026-03-22 00:17:50,747 [INFO] Monitoramento finalizado.
