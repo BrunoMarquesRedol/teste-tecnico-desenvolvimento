@@ -1,8 +1,3 @@
-Entendido, Bruno. Removi todos os emojis para manter o tom estritamente profissional e técnico do seu repositório.
-
-Aqui está a versão final do seu README.md da raiz, atualizada com a Tarefa 03 e seguindo o padrão de sobriedade solicitado:
-README.md (Raiz)
-
 Nome: Bruno
 
 Objetivo: Demonstrar competências em Python, Docker, Automação e Monitoramento.
