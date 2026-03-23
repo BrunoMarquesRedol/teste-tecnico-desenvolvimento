@@ -1,15 +1,5 @@
-# Python
 __pycache__/
-*.py[cod]
-*.class
-venv/
-.venv/
-env/
-.env
-
-# Logs e Docker
 *.log
+venv/
 .env
-
-# System
-.DS_Store
+stack/postgres_data/
