@@ -1,10 +1,11 @@
+cat <<EOF > README.md
 # NOME: Bruno Marques  
 Objetivo: Demonstrar competencias avancadas em Python, Docker, Automacao e Monitoramento de Infraestrutura.
 
 ---
 
 ## Visao Geral do Projeto
-Este repositorio contem a resolucao de um teste tecnico integrado, focando em escalabilidade, resiliencia e automacao de processos. Cada tarefa foi desenvolvida com Programacao Orientada a Objetos (POO) e as melhores praticas de Clean Code (PEP 8).
+Este repositorio contem a resolucao de um teste tecnico integrado, focando em escalabilidade, resiliencia e automacao de processos. Cada tarefa foi desenvolvida com Programacao Orientada a Objetos (POO) e as melhores práticas de Clean Code (PEP 8).
 
 ## Estrutura de Diretorios
 * tarefa-01/: Coletor de API REST resiliente.
@@ -14,6 +15,7 @@ Este repositorio contem a resolucao de um teste tecnico integrado, focando em es
 * tarefa-05/: Deploy de Stack de Monitoramento (Zabbix + Banco de Dados) via Docker.
 * tarefa-06/: Integracao Python com Zabbix API para relatorios de inventario.
 * tarefa-07/: Automacao de provisionamento e integracao Grafana + Zabbix.
+* projeto-final/: Solução completa end-to-end com scripts de controle.
 
 ---
 
@@ -38,8 +40,8 @@ Este repositorio contem a resolucao de um teste tecnico integrado, focando em es
 
 ## Como Executar
 1. Certifique-se de possuir Docker e Docker Compose instalados.
-2. Na pasta \`tarefa-05\`, execute: \`docker compose up -d\`.
-3. Para validar a integracao automatica do Grafana, execute: \`./tarefa-07/configure-grafana.sh\`.
+2. Na pasta \`projeto-final/scripts\`, execute: \`./init.sh\`.
+3. Para monitorar o status, use: \`./status.sh\`.
 
 ## Pre-requisitos
 * Python 3.12 ou superior.
@@ -59,3 +61,4 @@ Conforme permitido nas instrucoes, utilizei ferramentas de IA (Gemini) para:
 
 ---
 *Bruno Marques - Marco de 2026*
+EOF
