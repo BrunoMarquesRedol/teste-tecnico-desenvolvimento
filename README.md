@@ -1,53 +1,53 @@
-# Teste Técnico - Monitoramento de APIs e Automação
 NOME: Bruno Marques  
-Objetivo: Demonstrar competências avançadas em Python, Docker, Automação e Monitoramento.
+Objetivo: Demonstrar competencias avancadas em Python, Docker, Automacao e Monitoramento de Infraestrutura.
 
 ---
 
-## Visão Geral do Projeto
-Este repositório contém a resolução de um teste técnico integrado, focando em escalabilidade, resiliência e automação de processos. Cada tarefa foi desenvolvida seguindo o paradigma de Programação Orientada a Objetos (POO) e as melhores práticas de Clean Code (PEP 8).
+## Visao Geral do Projeto
+Este repositorio contem a resolucao de um teste tecnico integrado, focando em escalabilidade, resiliencia e automacao de processos. Cada tarefa foi desenvolvida com Programacao Orientada a Objetos (POO) e as melhores praticas de Clean Code (PEP 8).
 
-## Estrutura de Diretórios
+## Estrutura de Diretorios
 * tarefa-01/: Coletor de API REST resiliente.
-* tarefa-02/: Processador de métricas e gerador de relatórios.
+* tarefa-02/: Processador de metricas e gerador de relatorios.
 * tarefa-03/: Coletor robusto com Logging estruturado e Backoff Exponencial.
-* tarefa-04/: Containerização completa da solução utilizando Docker Compose e volumes persistentes para logs e configurações.
+* tarefa-04/: Containerizacao da solucao utilizando Docker Compose.
+* tarefa-05/: Deploy de Stack de Monitoramento (Zabbix + Banco de Dados) via Docker.
+* tarefa-06/: Integracao Python com Zabbix API para relatorios de inventario.
 
 ---
 
-## Detalhes Técnicos em Destaque
+## Detalhes Tecnicos em Destaque
 
-### Resiliência e Observabilidade (Tarefa 03)
-* Estratégia de Retry: Configuração de até 3 tentativas automáticas para mitigar falhas intermitentes de rede.
-* Backoff Exponencial: Implementação de intervalos crescentes (1s, 2s, 4s) para respeitar os limites do servidor e evitar bloqueios.
-* Logging Estruturado: Saída dupla (console e arquivo monitor.log) com timestamps e níveis de severidade para auditoria.
+### Monitoramento e Infraestrutura (Tarefa 05 e 06)
+* Stack Zabbix: Implementacao de ambiente de monitoramento completo utilizando Docker Compose, com persistencia de dados em volume dedicado.
+* Integracao JSON-RPC: Desenvolvimento de cliente Python customizado para interacao com a API do Zabbix, respeitando protocolos de autenticacao e sessao.
+* Geracao de Dashboards: Transformacao de payloads JSON complexos em relatorios HTML5 limpos e profissionais para tomada de decisao.
 
-### Containerização e DevOps (Tarefa 04)
-* Segurança (Non-Root): Dockerfile configurado para rodar com o usuário bruno_user, evitando privilégios de administrador no container.
-* Persistência via Volumes: Sincronização em tempo real do arquivo de log e suporte a hot-reload de configurações via config.yaml.
-* Otimização: Uso de imagens python:3.12-slim e modo PYTHONUNBUFFERED para logs instantâneos.
+### Resiliencia e Observabilidade (Tarefa 03)
+* Estrategia de Retry: Configuracao de ate 3 tentativas automaticas para mitigar falhas intermitentes de rede.
+* Backoff Exponencial: Implementacao de intervalos crescentes para respeitar limites do servidor.
+* Logging Estruturado: Saida dupla (console e arquivo) com timestamps e niveis de severidade.
+
+### Containerizacao e DevOps (Tarefa 04)
+* Seguranca (Non-Root): Dockerfile configurado para execucao com usuario comum, mitigando riscos de privilegios elevados.
+* Persistencia: Uso de volumes para logs e arquivos de configuracao YAML.
 
 ---
 
-## Pré-requisitos
-Para executar este projeto, você precisará de:
+## Pre-requisitos
 * Python 3.12 ou superior.
-* Docker e Docker Compose (versão atualizada).
+* Docker e Docker Compose (versao atualizada).
 * Git (para versionamento).
 
-## Uso de Inteligência Artificial
-Conforme permitido nas instruções do teste, utilizei ferramentas de IA (Gemini) para:
-* Refinamento da estrutura de documentação técnica.
-* Otimização de handlers de log para ambiente containerizado.
-* Revisão de lógica para tratamento de exceções robusto e Backoff Exponencial.
+## Uso de Inteligencia Artificial
+Conforme permitido nas instrucoes, utilizei ferramentas de IA (Gemini) para:
+* Refinamento da documentacao tecnica e revisao de Clean Code.
+* Otimizacao de handlers de log e estrutura de classes para integracao com API.
 
 ## Fontes de Pesquisa
-* Documentação Oficial Python 3.12+
-* Biblioteca Requests - Guia do Usuário
+* Documentacao Oficial Python 3.12+
+* Zabbix API Documentation (JSON-RPC 2.0)
 * Docker Documentation (Volumes & Security Best Practices)
-* Repositório de APIs Públicas (JSONPlaceholder / PokeAPI)
 
 ---
-
-## Como Navegar
-Cada pasta possui seu próprio README.md com instruções específicas de execução e detalhes técnicos individuais. Por favor, acesse as subpastas para validar os resultados de cada etapa.
+*Bruno Marques - Março de 2026*
