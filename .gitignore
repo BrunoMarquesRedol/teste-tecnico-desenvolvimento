@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+venv/
+.venv/
+env/
+.env
+
+# Logs e Docker
+*.log
+.env
+
+# System
+.DS_Store

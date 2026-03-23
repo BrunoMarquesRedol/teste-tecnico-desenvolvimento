@@ -1,57 +1,61 @@
-Nome: Bruno
+# NOME: Bruno Marques  
+Objetivo: Demonstrar competencias avancadas em Python, Docker, Automacao e Monitoramento de Infraestrutura.
 
-Objetivo: Demonstrar competências em Python, Docker, Automação e Monitoramento.
-Visão Geral do Projeto
+---
 
-Este repositório contém a resolução do teste técnico integrado, focando em escalabilidade, resiliência e automação. Cada tarefa foi desenvolvida seguindo o paradigma de Programação Orientada a Objetos (POO) e as melhores práticas de Clean Code (PEP 8).
-Estrutura de Diretórios
+## Visao Geral do Projeto
+Este repositorio contem a resolucao de um teste tecnico integrado, focando em escalabilidade, resiliencia e automacao de processos. Cada tarefa foi desenvolvida com Programacao Orientada a Objetos (POO) e as melhores praticas de Clean Code (PEP 8).
 
-    tarefa-01/: Coletor de API REST resiliente.
+## Estrutura de Diretorios
+* tarefa-01/: Coletor de API REST resiliente.
+* tarefa-02/: Processador de metricas e gerador de relatorios.
+* tarefa-03/: Coletor robusto com Logging estruturado e Backoff Exponencial.
+* tarefa-04/: Containerizacao da solucao utilizando Docker Compose.
+* tarefa-05/: Deploy de Stack de Monitoramento (Zabbix + Banco de Dados) via Docker.
+* tarefa-06/: Integracao Python com Zabbix API para relatorios de inventario.
+* tarefa-07/: Automacao de provisionamento e integracao Grafana + Zabbix.
 
-    tarefa-02/: Processador de métricas e gerador de relatórios.
+---
 
-    tarefa-03/: Coletor robusto com Logging estruturado e Backoff Exponencial.
+## Detalhes Tecnicos em Destaque
 
-Detalhes Técnicos da Tarefa 03
+### Automacao e Monitoramento (Tarefa 05, 06 e 07)
+* **Provisionamento Declarativo (Tarefa 07):** Implementacao de Infrastructure as Code (IaC) para configurar automaticamente o Datasource do Zabbix no Grafana via arquivos de provisioning, eliminando configuracoes manuais.
+* **Script de Validacao Bash:** Desenvolvimento de script para healthcheck de servicos, verificacao de plugins e teste de conectividade de API em tempo de boot.
+* **Integracao JSON-RPC:** Desenvolvimento de cliente Python customizado para interacao com a API do Zabbix, respeitando protocolos de autenticacao e sessao.
+* **Geracao de Relatorios:** Transformacao de payloads JSON complexos em relatorios HTML5 profissionais para tomada de decisao.
 
-Nesta etapa, o foco foi a implementação de resiliência em scripts de automação:
+### Resiliencia e Observabilidade (Tarefa 03)
+* **Estrategia de Retry:** Configuracao de ate 3 tentativas automaticas para mitigar falhas intermitentes de rede.
+* **Backoff Exponencial:** Implementacao de intervalos crescentes para respeitar limites do servidor.
+* **Logging Estruturado:** Saida dupla (console e arquivo) com timestamps e niveis de severidade.
 
-    Estratégia de Retry: Configuração de até 3 tentativas automáticas para mitigar falhas intermitentes de rede.
+### Containerizacao e DevOps (Tarefa 04)
+* **Seguranca (Non-Root):** Dockerfile configurado para execucao com usuario comum, mitigando riscos de privilegios elevados.
+* **Persistencia:** Uso de volumes gerenciados para logs, banco de dados (PostgreSQL) e configuracoes de dashboards.
 
-    Backoff Exponencial: Implementação de intervalos crescentes (1s, 2s, 4s) para respeitar os limites do servidor e evitar bloqueios.
+---
 
-    Observabilidade: Utilização da biblioteca logging para saída dupla (console e arquivo monitor.log) com timestamps e níveis de severidade.
+## Como Executar
+1. Certifique-se de possuir Docker e Docker Compose instalados.
+2. Na pasta \`tarefa-05\`, execute: \`docker compose up -d\`.
+3. Para validar a integracao automatica do Grafana, execute: \`./tarefa-07/configure-grafana.sh\`.
 
-    Configuração Externa: Separação de lógica e dados através de arquivos YAML, permitindo alterações de parâmetros sem modificação do código-fonte.
+## Pre-requisitos
+* Python 3.12 ou superior.
+* Docker e Docker Compose (versao atualizada).
+* Git (para versionamento).
 
-Pré-requisitos
+## Uso de Inteligencia Artificial
+Conforme permitido nas instrucoes, utilizei ferramentas de IA (Gemini) para:
+* Refinamento da documentacao tecnica e revisao de Clean Code.
+* Otimizacao de handlers de log e estrutura de classes para integracao com API.
 
-Para executar qualquer parte deste projeto, você precisará de:
+## Fontes de Pesquisa
+* Documentacao Oficial Python 3.12+
+* Zabbix API Documentation (JSON-RPC 2.0)
+* Grafana Provisioning Documentation
+* Docker Documentation (Volumes & Security Best Practices)
 
-    Python 3.9 ou superior
-
-    Docker e Docker Compose
-
-    Git (para clonar o repositório)
-
-Uso de Inteligência Artificial
-
-Conforme permitido nas instruções do teste, utilizei ferramentas de IA (Gemini/ChatGPT) para:
-
-    Refinamento da estrutura de documentação técnica.
-
-    Revisão de lógica para tratamento de exceções robusto.
-
-    Otimização de comentários e docstrings para máxima clareza.
-
-Fontes de Pesquisa
-
-    Documentação Oficial Python 3.10+
-
-    Biblioteca Requests - Guia do Usuário
-
-    Repositório de APIs Públicas (JSONPlaceholder)
-
-Como Navegar
-
-Cada pasta possui seu próprio README.md com instruções específicas de execução e detalhes técnicos daquela tarefa. Por favor, acesse as subpastas para validar os resultados individuais.
+---
+*Bruno Marques - Marco de 2026*
