@@ -1,4 +1,3 @@
-cat <<EOF > README.md
 # NOME: Bruno Marques  
 Objetivo: Demonstrar competencias avancadas em Python, Docker, Automacao e Monitoramento de Infraestrutura.
 
