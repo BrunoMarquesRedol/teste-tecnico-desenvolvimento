@@ -68,8 +68,12 @@ services:
       - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
       - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD:-admin}
+      # Necessário para o arquivo zabbix.yml da Tarefa 07 autenticar
+      - ZABBIX_PASS=${ZABBIX_PASS:-zabbix}
     volumes:
       - grafana_data:/var/lib/grafana
+      # Mapeamento do Provisioning da Tarefa 07
+      - ../tarefa-07/grafana/provisioning:/etc/grafana/provisioning
     networks:
       - monitor-net
 

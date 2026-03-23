@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  # Base de dados para armazenar configurações e histórico do Zabbix
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    restart: always
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - monitor-net
+
+  # Core do Zabbix - Processa a lógica de monitorização e alertas
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:alpine-6.0-latest
+    container_name: zabbix-server
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres
+    networks:
+      - monitor-net
+    environment:
+      - DB_SERVER_HOST=postgres
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pwd
+      - POSTGRES_DB=zabbix
+
+  # Interface Web do Zabbix - Acedida na porta 8080
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:alpine-6.0-latest
+    container_name: zabbix-web
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file: .env
+    depends_on:
+      - zabbix-server
+    networks:
+      - monitor-net
+    environment:
+      - ZBX_DBHOST=postgres
+      - DB_SERVER_HOST=postgres
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pwd
+      - POSTGRES_DB=zabbix
+
+  # Grafana - Visualização de dados. Porta 3000.
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      # Instala automaticamente o plugin do Zabbix no arranque
+      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # CORREÇÃO: Caminho relativo para buscar o provisioning da Tarefa 07
+      - ../../tarefa-07/grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - monitor-net
+
+  # O teu Coletor Python customizado
+  api-collector:
+    build:
+      context: ../collector # Pasta onde está o Dockerfile e o código Python
+      dockerfile: Dockerfile
+    container_name: api-collector
+    restart: always
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    driver: bridge
+
+volumes:
+  pg_data:
+  grafana_data:
