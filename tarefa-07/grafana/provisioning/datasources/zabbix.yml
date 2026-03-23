@@ -1,0 +1,14 @@
+apiVersion: 1
+
+datasources:
+  - name: Zabbix
+    type: alexanderzobnin-zabbix-datasource
+    access: proxy
+    url: http://zabbix-web:8080/api_jsonrpc.php
+    basicAuth: false
+    isDefault: true
+    jsonData:
+      username: Admin
+      password: ${ZABBIX_PASS} # Puxa do o .env
+      zabbixVersion: 6
+    editable: true
